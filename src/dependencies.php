@@ -20,4 +20,8 @@ return function (App $app) {
         return $logger;
     };
 
+    $container['db'] = function (\Psr\Container\ContainerInterface $container){
+        $dbconfig = $container->get('settings')['db'];
+        $db = new PDO('mysql:host='.$dbconfig['host'].';dbname='.$dbconfig['dbname'], $dbconfig['username'], $dbconfig['password']);
+        return $db;};
 };
