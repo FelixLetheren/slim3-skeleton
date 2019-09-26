@@ -18,7 +18,13 @@
 
         <?php if (isset($tasks)) : ?>
             <?php foreach($tasks as $task){
-               var_dump($task);
+               echo '<div class="task">'. $task['task']. '<input type="checkbox" ';
+                if($task['completed'] == 1){
+                    echo 'checked></div>';
+                }
+                else{
+                    echo '></div>';
+                }
             }?>
         <?php else: ?>
             <p>Try <a href="http://www.slimframework.com">SlimFramework</a></p>
