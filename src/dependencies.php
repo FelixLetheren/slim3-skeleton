@@ -28,4 +28,5 @@ return function (App $app) {
     };
 
     $container['TaskModel'] = new \Example\Factories\TaskModelFactory();
+    $container['IndexController'] = new \Example\Factories\IndexControllerFactory();
 };

@@ -15,7 +15,7 @@ class TaskModel
 
     public function getTasks()
     {
-        $sql = $this->db->prepare('SELECT `task` FROM `tasks`');
+        $sql = $this->db->prepare('SELECT * FROM `tasks`');
         $sql->execute();
          return $sql->fetchAll();
     }
