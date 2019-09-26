@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Slim 3</title>
-        <link href="css/normalise.css" rel="stylesheet" type="text/css">
-        <link href="css/style.css" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-        <h1>Todo</h1>
-        <div>
-            <h2>Add Task:</h2>
-            <form action="/addToDo" method="post">
-                <input type="text" name="task-entry" placeholder="enter task...">
-                <input type="submit" value="Add">
-            </form>
-        </div>
+<head>
+    <meta charset="utf-8"/>
+    <title>Slim 3</title>
+    <link href="css/normalise.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+<h1>Todo</h1>
+<div>
+    <h2>Add Task:</h2>
+    <form action="/addToDo" method="post">
+        <input type="text" name="task-entry" placeholder="enter task...">
+        <input type="submit" value="Add">
+    </form>
+</div>
 
-        <?php if (isset($tasks)) : ?>
-            <?php foreach($tasks as $task){
-               echo '<div class="task">'. $task['task']. '<input type="checkbox" ';
-                if($task['completed'] == 1){
-                    echo 'checked></div>';
-                }
-                else{
-                    echo '></div>';
-                }
-            }?>
-        <?php else: ?>
-            <p>Try <a href="http://www.slimframework.com">SlimFramework</a></p>
-        <?php endif; ?>
-    </body>
+<div>
+    <h2>Uncompleted Tasks</h2>
+    <?php foreach ($tasks as $task) {
+        if ($task['completed'] == 0) {
+            echo '<div class="task">' . $task['task'] . '<input type="checkbox" class="checkbox">';
+        }
+    } ?>
+</div>
+<div>
+    <h2>Completed Tasks</h2>
+</div>
+<?php foreach ($tasks as $task) {
+    if ($task['completed'] == 1) {
+        echo '<div class="task">' . $task['task'] . '<input type="checkbox" class="checkbox">';
+    }
+} ?>
+</body>
 </html>
