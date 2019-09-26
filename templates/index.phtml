@@ -21,7 +21,7 @@
     <h2>Uncompleted Tasks</h2>
     <?php foreach ($tasks as $task) {
         if ($task['completed'] == 0) {
-            echo '<div class="task">' . $task['task'] . '<input type="checkbox" class="checkbox">';
+            echo '<div class="task">' . $task['task'] . '<input type="checkbox" class="checkbox" value="' . $task['id'] . '"></div>';
         }
     } ?>
 </div>
@@ -30,7 +30,7 @@
 </div>
 <?php foreach ($tasks as $task) {
     if ($task['completed'] == 1) {
-        echo '<div class="task">' . $task['task'] . '<input type="checkbox" class="checkbox">';
+        echo '<div class="task">' . $task['task'] . '</div>';
     }
 } ?>
 </body>

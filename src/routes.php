@@ -9,4 +9,5 @@ return function (App $app) {
 
    $app->get('/', 'IndexController');
    $app->post('/addToDo', 'AddToDoController');
+   $app->post('/updateToDo', 'UpdateToDoController');
 };
