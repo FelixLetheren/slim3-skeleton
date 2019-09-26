@@ -8,5 +8,5 @@ return function (App $app) {
     $container = $app->getContainer();
 
    $app->get('/', 'IndexController');
-   $app->post('/', 'IndexController');
+   $app->post('/addToDo', 'AddToDoController');
 };

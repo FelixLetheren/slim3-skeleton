@@ -5,7 +5,6 @@ namespace Example\Controllers;
 
 
 use Example\Models\TaskModel;
-use Psr\Container\ContainerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\Views\PhpRenderer;
@@ -25,6 +24,7 @@ class IndexController
     {
         $this->renderer->render($response, 'index.phtml', ['tasks' => $this->taskModel->getTasks()]);
     }
+
 
 
 }

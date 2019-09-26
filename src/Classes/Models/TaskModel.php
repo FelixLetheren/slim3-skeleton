@@ -20,4 +20,11 @@ class TaskModel
          return $sql->fetchAll();
     }
 
+    public function addTask($task){
+        $sql = $this->db->prepare('INSERT INTO `tasks`(task) VALUE (:task);');
+        $sql->bindParam('task', $task, \PDO::PARAM_STR);
+        $sql->execute();
+
+    }
+
 }
