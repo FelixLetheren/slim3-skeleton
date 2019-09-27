@@ -19,19 +19,23 @@
 
 <div>
     <h2>Uncompleted Tasks</h2>
-    <?php foreach ($tasks as $task) {
-        if ($task['completed'] == 0) {
-            echo '<div class="task">' . $task['task'] . '<input type="checkbox" class="checkbox" value="' . $task['id'] . '"></div>';
-        }
-    } ?>
+    <div class="uncompleted-tasks">
+        <?php foreach ($tasks as $task) {
+            if ($task['completed'] == 0) {
+                echo '<div class="task"><h3 class="task-text">' . $task['task'] . '</h3><input type="checkbox" class="checkbox" value="' . $task['id'] . '"></div>';
+            }
+        } ?>
+    </div>
 </div>
 <div>
     <h2>Completed Tasks</h2>
 </div>
-<?php foreach ($tasks as $task) {
-    if ($task['completed'] == 1) {
-        echo '<div class="task">' . $task['task'] . '</div>';
-    }
-} ?>
+<div class="completed-tasks">
+    <?php foreach ($tasks as $task) {
+        if ($task['completed'] == 1) {
+            echo '<div class="task"><h3 class="task-text">' . $task['task'] . '</h3></div>';
+        }
+    } ?>
+</div>
 </body>
 </html>

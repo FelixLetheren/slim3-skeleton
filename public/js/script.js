@@ -1,4 +1,5 @@
-document.querySelectorAll('.checkbox').forEach(function (checkbox) {
+let checkboxes = document.querySelectorAll('.checkbox')
+checkboxes.forEach(function (checkbox) {
     checkbox.addEventListener('change', async function(e) {
         const url = '/updateToDo';
         const data = {taskId: this.value};
@@ -18,3 +19,13 @@ document.querySelectorAll('.checkbox').forEach(function (checkbox) {
         }
     })
 })
+checkboxes.forEach( function (checkbox) {
+    checkbox.addEventListener('change', function(e){
+        if(checkbox.checked === true ){
+            document.querySelector('.completed-tasks').innerHTML += checkbox.previousElementSibling.innerHTML
+            this.innerHTML = ''
+            this.previousElementSibling.innerHTML = ''
+        }
+    })
+})
+
